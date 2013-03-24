@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="path" type="xs:string"/>
+  <xs:element name="letter" type="char"/>
+  <xs:element name="label" type="xs:string"/>
+
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="policy" type="xs:string" default="Default"/>
+  <xs:attribute name="path" type="xs:string"/>
+  <xs:attribute name="readonly" type="xs:boolean" default="true"/>
+
+  <xs:element name="volume">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="letter"/>
+        <xs:element ref="label"/>
+      </xs:sequence>
+      <xs:attribute ref="policy"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="member">
+    <xs:complexType>
+      <xs:attribute ref="path" use="required"/>
+      <xs:attribute ref="readonly"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="members">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="member" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="aufsconfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="volume"/>
+        <xs:element ref="members"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aufsconfig>
+  <!-- Declare the union characteristics here -->
+  <volume policy="Default">
+    <!-- The drive letter of the union -->
+    <letter>Q</letter>
+    <!-- The volume label (display name) of the union -->
+    <label>BigDrive</label>
+  </volume>
+  <!-- Declare all members drives of the union here -->
+  <members>
+    <!-- The "path attribute is required. The readonly attribute is optional; the default value is "true". If set to true, then no modifications will be done to the member's directories/files -->
+    <member path="E:\" readonly="false"/>
+    <member path="D:\"/>
+  </members>
+</aufsconfig>
