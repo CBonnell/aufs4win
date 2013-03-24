@@ -1,7 +1,7 @@
 ﻿# Aufs4Win  
   
 ## What is Aufs4Win?  
-Aufs4Win is a filesystem implementation that provides the ability to merge multiple filesystems into one merged filesystem. The contents of all member filesystems appear as one large filesystem to all applications. Aufs4Win provides a much more flexible means to create volumes which span multiple physical disks than alternatives such as JBOD and dynamic disks.  
+Aufs4Win is a filesystem implementation that provides the ability to merge multiple filesystems into one filesystem. The contents of all member filesystems appear as one large filesystem to all applications. Aufs4Win provides a much more flexible means to create volumes which span multiple physical disks than alternatives such as JBOD and dynamic disks.  
   
 Aufs4Win is partially inspired by [Aufs for *nix-based systems](http://aufs.sourceforge.net/) and is built on top of [Dokan](http://dokan-dev.net/en/). The original motivation for developing Aufs4Win was to combine multiple drives containing video files and provide a merged view of all video files as well as store new video files on the hard disk with the most free space.  
   
@@ -14,12 +14,12 @@ Aufs4Win requires version 0.6 of Dokan to be installed. The installer can be fou
 * The configuration file must contain a "volume" element which provides the drive letter, drive label, as well as the file/folder creation policy (see the "Creating custom policies" section for more details) for the Aufs drive.
 * At least one member must be specified within the "members" element.
 * Individual drive members can be specified as "read-only" to prevent modifications to them. The following operations are not permitted on a read-only member drive:
-** Writing/appending to files
-** Truncating files
-** Creating files/folders
-** Renaming files/folders
-** Deleting files/folders
-** Copying files/folders to the union drive  
+  * Writing/appending to files
+  * Truncating files
+  * Creating files/folders
+  * Renaming files/folders
+  * Deleting files/folders
+  * Copying files/folders to the union drive  
   
 ## Running Aufs4Win  
 After you have created the configuration file, you can start Aufs4Win by calling the executable on the command line and specifying the path to the configuration file as the first command line argument. If there is an error in your configuration file, the executable will print an error detailing the location of the error in the configuration file and then exit. If the executable started successfully, the Aufs drive should appear on your machine with the drive letter and label specified in the configuration file.  
